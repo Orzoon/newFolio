@@ -1,0 +1,120 @@
+section.about_me{
+    font-size: $font-size;
+    
+    //background: $bg_about_me;
+    background: #f5f5f5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 75px;
+    grid-template-rows: 200px auto;
+    grid-template-areas:"about_me_title about_me_title"
+                        "about_image about_content";
+                    
+    & .about_me_title{
+        @include heading;
+        grid-area: about_me_title;
+        align-self: center;
+        justify-self: center;
+
+        & h1 {
+            @include headingpseudo;
+        }
+    }
+    & .about_me_image {
+        position: relative;
+        grid-area: about_image;
+        justify-self: center;
+        align-self: start;
+        opacity: 0;
+        background:linear-gradient(to bottom left, #4716ed , #50E3C2);
+        // width based on about_me-width
+        margin-top: 50px;
+        margin-bottom: 10%;
+        margin-left: 15%;
+
+        animation: about_me_image .8s 1.5s ease-in-out forwards;
+
+        & .about_me_con{
+            position: absolute;
+            // based on this widh .abt_me_image_height
+            width: 460px;
+            height: auto;
+            z-index: 9;
+            top: 0%;
+            right: 0%;
+            opacity: 0;
+            animation: about_me_con 1s 2.2s ease-in-out forwards;
+            & img{
+                display: block;
+                width: 100%;
+                height: auto; 
+            }
+            
+            &:before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.2;
+                z-index: 9;
+                background:linear-gradient(to bottom right, #4716ed , #50E3C2);
+            }
+        }
+    }
+
+    & .about_me_content{
+        position: relative;
+        grid-area: 'about-content';
+        background: #FFF;
+        //border-radius: 15px;
+        width: 35em;
+        justify-self: end;
+        align-self: start;
+        height: 40em;
+        margin-right: 10%;
+        box-shadow: 0px 2px 4px rgba(148, 172, 182, 0.315);
+        border-radius: 12px;
+        font-family: $font-family-sansp;
+        padding: 3em 2em 3em 3em;
+        overflow: hidden;
+        & p {
+            font-size: 1.44rem;
+            color: $dark-blue;
+            font-weight: 700;
+            //line-height: 1.5;
+            line-height: 1.7;
+
+            & strong {
+                font-weight: 800;
+                color: $nav-color;
+            }
+            & svg{
+                display: inline-block;
+                height: 1em;
+                width: 1em;
+                vertical-align: baseline;
+            }
+        }
+    }
+}
+
+@keyframes about_me_con{
+    0% {}
+    20% {opacity: 0.6;}
+    25% {opacity: 1}
+    100% {
+        top: -10%;
+        right: -10%;
+        opacity: 1;
+    }
+}
+
+@keyframes about_me_image{
+    100% {
+        opacity: 1;
+        margin-bottom: 5%;
+        margin-left: 10%;
+    }
+}

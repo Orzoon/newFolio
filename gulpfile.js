@@ -4,7 +4,7 @@ const browserSync = require('browser-sync').create();
 const pug = require('gulp-pug')
 
 function cssStyles(){
-    return gulp.src('./scss/*.scss')
+    return gulp.src('./scss/index.scss')
            .pipe(sass())
            .pipe(gulp.dest('./css'))
            .pipe(browserSync.stream());
@@ -25,6 +25,7 @@ function watch(){
     gulp.watch('./scss/*.scss', cssStyles)
     gulp.watch('./pug/*.pug', pugFiles)
     gulp.watch('index.html').on('change', browserSync.reload)
+    gulp.watch('./js/*.js').on('change', browserSync.reload)
 }
 
 exports.cssStyles = cssStyles;

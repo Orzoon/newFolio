@@ -1,0 +1,163 @@
+
+//head_landing global styles
+$color: #300a44;
+$font-family: 'Roboto Mono', monospace; 
+
+
+section.head_landing{
+
+    // height js computed
+    overflow: hidden;
+    position: relative;
+    font-size: 16px;
+
+    & #particles-js{
+        height: 100%;
+        width: 100%;
+    }
+    // ---------head-Overlay---------START
+    & .head_overlay{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1.3fr 1fr;
+        grid-template-areas: ' head_title head_image'
+                              'head_button head_image';
+
+        & .head_title{
+            grid-area: head_title;
+            justify-self: start;
+            align-self: end;
+            margin-left: 0px;
+            opacity: 0.2;
+            animation: head_title 1s ease-in-out forwards;
+            & h1 {
+            color: $color;
+            font-size: 3.4em;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            }
+        }
+        & .head_button {
+            grid-area: head_button;
+            justify-self: start;
+            align-self: start;
+            opacity: 0;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            animation: head_button 1s .5s ease-in-out forwards;
+            & button {
+                outline: none;
+                border: none;
+                width: 160px;
+                border-radius: 50px;
+                font-familY: $font-family;
+                font-size: $font-size;
+                color: $nav-color;
+                background: rgba(255,255,255, .87);
+                padding: 16px 25px 17px;
+                box-shadow: 0 2px 4px rgba(33,37,41,.2);
+
+                &:hover {
+                    cursor: pointer;
+                    font-weight: 500;
+                    transition: font-weight .5s ease-in-out;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        & .head_image{
+            grid-area: head_image;
+            background:linear-gradient(to bottom right, #4716ed , #50E3C2);
+            justify-self: center;
+            align-self: end;
+            position: relative;
+            opacity: 0;
+            animation: head_image .8s 1.5s ease-in-out forwards;
+            margin-bottom: 10%;
+            margin-right: 15%;
+            // width and height based on head_image_con_height
+            .head_image_con{
+                position: absolute;
+                left: 0%;
+                top:0%;
+                // manipulate _head_image based on this height
+                width: 460px;
+                height: auto;
+                z-index: 5;
+                opacity: 0;
+
+                animation: head_image_con 1s 2.2s ease-in-out forwards;
+                & img{
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    opacity: 1;
+                }
+                &:before{
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                &:before{
+                    background:linear-gradient(to bottom right, #4716ed , #50E3C2);
+                    opacity: 0.2;
+                    z-index: 9;
+                }
+            }
+
+        }
+    }
+
+}
+
+@keyframes head_title{
+    0% {
+        margin-left: 80;
+    }
+    100% {
+        margin-left: 90px;
+        opacity: 1;
+    }
+}
+
+@keyframes head_button{
+    0% {
+        margin-left: 50;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 90px;
+    }
+}
+
+@keyframes head_image_con {
+    0% {}
+    20% {opacity: 0.6;}
+    25% {opacity: 1}
+    100% {
+        top: -10%;
+        left: -10%;
+        opacity: 1;
+    }
+}
+
+@keyframes head_image{
+    100% {
+        opacity: 1;
+        margin-bottom: 5%;
+        margin-right: 10%;
+    }
+}
