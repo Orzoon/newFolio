@@ -1,0 +1,111 @@
+section.projects{
+    font-size: 16px;
+    height: 100vh;
+    background: #007d60;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'project_image_con project_desc';
+
+    & .project_image_con{
+        background: #fff;
+        grid-area: project_image_con;
+        justify-self: center;
+        align-self: center;
+        width: fit-content;
+        border-radius: 10px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 150px;
+        background: #007d60;
+
+        & .project_image {
+                position: relative;
+                width: 100%;
+                height: 364px;
+                overflow-y: hidden;
+
+                &:after, &:before{
+                    position: absolute;
+                    content: '';
+                    width: 100%;
+                    left: 0;
+                }
+                &:before{
+                    height: 80%;
+                    top: 0%;
+                    background: linear-gradient(-180deg,rgba(48,10,68,0) 36%,rgba(48,10,68,0.8) 80%,#300a44 100%);
+                    z-index: 3;
+                }
+                &:after {
+                    top: 80%;
+                    height: 20%;
+                    background:#300a44;
+                    z-index: 3;
+                }
+            img: {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            & .project_image_text {
+                position: absolute;
+                z-index: 4;
+                height: 38%;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                color: #fff;
+                font-size: 2.2em;
+                font-family: $font-family-sansp;
+                text-decoration: underline;
+                padding-left: 40px;
+                font-weight: 500;
+                word-spacing: 2px;
+            }
+        }
+
+        & .project_image_desc{
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            font-size: 1.33rem;
+            padding-left: 40px;
+            padding-top: 20px;
+
+            & h1{
+                color: $dark-blue;
+                font-size: 1.33rem;
+                font-family: $font-family-sansp;
+            }
+
+            & p {
+                font-size: 1.3rem;
+                font-family: $font-family-sansp;
+                color: #54565a;
+            }
+        }
+    }
+    & .project_desc{
+        grid-area: project_desc;
+        justify-self: start;
+        align-self: center;
+        font-family: $font-family-sansp;
+        padding-right: $con_padding_right;
+        
+        & h1{
+            font-size: $con_title_h1_lg;
+            line-height: 1;
+            color: #fff;
+        }
+
+        & p{
+            margin-top:$con_title_p_margin_top;
+            color: #fff;
+            font-size: $con_title_p_lg;
+            
+        }
+    }
+}

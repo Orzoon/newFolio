@@ -1,0 +1,125 @@
+section.contact_me{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px auto 50px;
+    grid-template-areas:'. .'
+                        'contact_content contact_form'
+                        '. .';
+
+    & .contact_content{
+        grid-area: contact_content;
+        justify-self: end;
+        align-self: center;
+    }
+    & .contact_form {
+        grid-area: contact_form;
+        justify-self: start; 
+        align-self: center;
+    }
+}
+
+.contact_content{
+   font-family: $font-family-sansp;
+   font-family: $font-family-sansp;
+   padding-left: $con_padding_right;
+   & h1 {
+    font-size: $con_title_h1_lg;
+    color: $dark-blue;
+    line-height: 1;
+   }
+
+   & p {
+    margin-top:$con_title_p_margin_top;
+    font-size: $con_title_p_lg;  
+   }
+}
+
+.contact_form{
+   margin: 0;
+   padding: 0;
+   padding-right: 50px;
+   display: grid;
+   width: 80%;
+   height: auto;
+   grid-template-columns:1fr;
+   grid-template-rows:50px repeat(3,50px) auto 100px;
+   grid-row-gap: 20px;
+   grid-template-areas:'.'
+                       'firstName'
+                       'lastName'
+                       'email'
+                       'textarea'
+                       'form_button'
+                        '.';
+    & textarea, & input {
+        padding-left: 20px;
+        border: none;
+        width: 100%;
+        font-family: $font-family-sansp;
+        font-size: 17px;
+        color: $dark-blue;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        &::-webkit-scrollbar-track {
+
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: $nav-color;
+          border-radius: 10px;
+        }
+    }
+    & textarea {
+        padding-top: 0;
+        resize: vertical;
+        margin-top: 20px;
+        border-bottom: 1px solid $nav-color;
+        border-left: 1px solid $nav-color;
+        height: 200px;
+    }
+    & input {
+        border-bottom: 1px solid $nav-color;
+        height: auto;
+    }
+
+    & #firstName {
+        grid-area: firstName;
+    }
+    & #lastName{
+        grid-area: lastName;
+    }
+    & #email {
+        grid-area: email;
+    }
+    & #textarea{
+        grid-area: textarea;
+    }
+
+    & .form_button{
+        grid-area: form_button;
+        justify-self: start;
+        outline: none;
+        border: none;
+        font-familY: $font-family-sansp;
+        color: #fff;
+        background: none;
+        & a {
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            padding: 16px 25px 17px;
+            font-size: $font-size;
+            background:  $dark-blue;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(33,37,41,.2);
+        }
+    }
+}
