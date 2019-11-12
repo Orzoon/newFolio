@@ -1,19 +1,22 @@
 section.projects{
     font-size: 16px;
-    height: 100vh;
+    height: auto;
     background: #007d60;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: 'project_image_con project_desc';
-
+    grid-template-columns: 4% 1fr 4%;
+    grid-template-rows:60px auto auto 60px;
+    grid-template-areas: ". . ."
+                         ". project_desc ."
+                         ". project_image_con ."
+                         ". . .";
     & .project_image_con{
+        margin-top: 60px;
         background: #fff;
         grid-area: project_image_con;
-        justify-self: center;
+        justify-self: start;
         align-self: center;
-        width: fit-content;
+        width: 275px;
         border-radius: 10px;
         overflow: hidden;
         display: grid;
@@ -24,9 +27,8 @@ section.projects{
         & .project_image {
                 position: relative;
                 width: 100%;
-                height: 364px;
-                overflow-y: hidden;
-
+                height: 300px;
+                overflow: hidden;
                 &:after, &:before{
                     position: absolute;
                     content: '';
@@ -56,9 +58,9 @@ section.projects{
                 height: 38%;
                 width: 100%;
                 left: 0;
-                bottom: 0;
+                bottom: 20px;
                 color: #fff;
-                font-size: 2.2em;
+                font-size: 1.6em;
                 font-family: $font-family-sansp;
                 text-decoration: underline;
                 padding-left: 40px;
@@ -80,9 +82,8 @@ section.projects{
                 font-size: 1.33rem;
                 font-family: $font-family-sansp;
             }
-
             & p {
-                font-size: 1.3rem;
+                font-size: 1.13rem;
                 font-family: $font-family-sansp;
                 color: #54565a;
             }
@@ -96,16 +97,177 @@ section.projects{
         padding-right: $con_padding_right;
         
         & h1{
-            font-size: $con_title_h1_lg;
             line-height: 1;
             color: #fff;
+            font-size: $con_title_h1_m;
+            font-weight: 600;
         }
-
         & p{
             margin-top:$con_title_p_margin_top;
             color: #fff;
-            font-size: $con_title_p_lg;
+            font-size: $con_p_font_size_sm;
             
         }
     }
+}
+@media only screen and (min-width: 500px){
+    section.projects{
+        & .project_image_con{
+            width: 400px;
+        }
+        & .project_desc{
+            grid-area: project_desc;
+            justify-self: start;
+            align-self: center;
+            padding: 0;
+            & h1{
+                font-size: $con_title_h1_m;
+                line-height: 1;
+                font-weight: 700;
+            }
+            & p{
+                font-size: $con_p_font_size_m;      
+            }
+        }
+    } 
+}
+@media only screen and (min-width: 768px){
+    section.projects{
+        & .project_image_con{
+            width: auto;
+            & .project_image {
+                    position: relative;
+                    width: 100%;
+                    height: 364px;
+                    overflow: hidden;
+                img: {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+                & .project_image_text {
+                    font-size: 2.2em;
+                    font-family: $font-family-sansp;
+                }
+            }
+            & .project_image_desc{
+                font-size: 1.33rem;
+                padding-left: 40px;
+                padding-top: 20px;
+                & h1{
+                    font-size: 1.33rem;   
+                }
+    
+                & p {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+        & .project_desc{
+            & h1{
+                font-size: $con_title_h1_lg;
+                line-height: 1;
+                font-weight: 700;
+            }
+            & p{
+                font-size: $con_title_p_lg;    
+            }
+        }
+    } 
+}
+@media only screen and (min-width: 900px){
+    section.projects{
+        font-size: 16px;
+        display: grid;
+        grid-template-columns:2% 1fr 1fr 2%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: ". . . ."
+                            ". project_image_con project_desc ."
+                            ". . . .";
+    
+        & .project_image_con{
+            grid-area: project_image_con;
+            justify-self: start;
+            align-self: center;
+            overflow: hidden;
+            width: 450px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 150px;
+            margin: 0;
+            margin-right: 20px;
+        }
+        & .project_desc{
+            grid-area: project_desc;
+            justify-self: start;
+            align-self: center;
+            font-family: $font-family-sansp;
+            padding: 0;
+        }
+    }
+}
+@media only screen and (min-width: 1024px){
+    section.projects{
+        font-size: 16px;
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: ". . . ."
+                            ". project_image_con project_desc ."
+                            ". . . .";
+    
+        & .project_image_con{
+            grid-area: project_image_con;
+            margin: 0;
+        }
+        & .project_desc{
+            grid-area: project_desc;
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    section.projects{
+        font-size: 16px;
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: ". . . ."
+                            ". project_image_con project_desc ."
+                            ". . . .";
+    
+        & .project_image_con{
+            grid-area: project_image_con;
+            margin: 0;
+            padding: 0;
+            justify-self: center;
+        }
+        & .project_desc{
+            grid-area: project_desc;
+            margin: 0;
+            padding: 0;
+        }
+    } 
+}
+@media only screen and (min-width: 1400px){
+    section.projects{
+        font-size: 16px;
+        display: grid;
+        grid-template-columns:1fr 650px 650px 1fr;
+        grid-template-rows: 180px auto 180px;
+        grid-template-areas: ". . . ."
+                            ". project_image_con project_desc ."
+                            ". . . .";
+    
+        & .project_image_con{
+            grid-area: project_image_con;
+            margin: 0;
+            padding: 0;
+            justify-self: center;
+        }
+        & .project_desc{
+            grid-area: project_desc;
+            margin: 0;
+            padding: 0;
+        }
+    } 
 }

@@ -5,14 +5,15 @@ section.myskills{
     position: relative;
     font-size: $font-size;
     width: 100%;
-    height: 100vh;
+    height: auto;
     background: $dark-white;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:50px 1fr 50px;
-    grid-template-areas: '. .'
-                         'programming_languages_content programming_languages'
-                         '. .';
+    grid-template-columns: 4% 1fr 4%;
+    grid-template-rows:60px auto 1fr 60px;
+    grid-template-areas: ". . ."
+                         ". programming_languages_content ." 
+                         ". programming_languages ."
+                         ". . .";
 
     & .programming_languages_content{
         grid-area: programming_languages_content;
@@ -24,35 +25,34 @@ section.myskills{
        
     }
 }
-
 .programming_languages_content {
-    justify-self: end;
+    justify-self: start;
     align-self: center;
-    padding-left: $con_padding_right; 
     & h1 {
         font-family: $font-family-sansp;
-        font-size: $con_title_h1_lg;
         color: $dark-blue;
         line-height: 1;
+        font-size: $con_title_h1_m;
+        font-weight: 600;
     }
 
     & p {
         margin-top:$con_title_p_margin_top;
         color:#54565a;
-        font-size: $con_title_p_lg;
+        font-size: $con_p_font_size_sm;
     }
 }
-
-
 .programming_languages{
+    margin-top: 60px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 155px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
     height: auto;
-    width: 35em;
-    justify-self: center;
-    grid-row-gap: 20px;
-    grid-column-gap: 30px;
+    width: 100%;
+    justify-self: start;
+    margin-left: 8px;
+    grid-row-gap: 10px;
+    grid-column-gap: 15px;
     // the stable container _> position relative
     & .lang_cont_relative{
         position: relative;
@@ -66,7 +66,8 @@ section.myskills{
             width: 100%;
             top:0px;
             left: 0px;
-            animation: lang_cont .6s ease-in-out forwards;
+            //-------------------->
+            animation: lang_cont_sm .6s ease-in-out forwards;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 3fr 1fr;
@@ -93,7 +94,7 @@ section.myskills{
             }
 
             & h1 {
-                font-size: $con_title_p_lg;
+                font-size:$con_p_font_size_sm;
                 margin-top: -5%;
                 text-align: center;
                 color: $dark-blue;
@@ -113,4 +114,259 @@ section.myskills{
         left: -13px;
     }
 }
+@keyframes lang_cont_sm{
+    0%{}
+    100%{
+        top: -8px;
+        left: -8px;
+    }
+}
+@keyframes lang_cont_m{
+    0%{}
+    100%{
+        top: -15px;
+        left: -15px;
+    }
+}
+
+@media only screen and (min-width: 350px){
+    .programming_languages{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 140px);
+        grid-auto-rows: 140px;
+        margin-left: 8px;
+        grid-row-gap: 15px;
+        grid-column-gap: 15px;
+        // the stable container _> position relative
+    }
+}
+@media only screen and (min-width: 500px){
+    .programming_languages_content {
+        & h1 {
+            font-size: $con_title_h1_m;
+            line-height: 1;
+            font-weight: 700;
+        }
+        & p {
+            font-size: $con_p_font_size_m;
+        }
+    }
+}
+@media only screen and (min-width: 768px){
+    .programming_languages_content {
+        & h1 {
+            font-size: $con_title_h1_lg;
+        }
+        & p {
+            font-size: $con_title_p_lg;
+        }
+    } 
+    .programming_languages{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 155px;
+        height: auto;
+        width: 35em;
+        justify-self: start;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        // the stable container _> position relative
+        & .lang_cont_relative{
+            & .lang_cont{
+                //-------------------->
+                animation: lang_cont .6s ease-in-out forwards;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 900px){
+    section.myskills{
+        width: 100%;
+        display: grid;
+        grid-template-columns:2% 1fr 1fr 2%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: '. . . .'
+                            '. programming_languages_content programming_languages .'
+                            '. . . .';
+
+        & .programming_languages_content{
+            grid-area: programming_languages_content;
+            
+        }
+
+        & .programming_languages{
+            grid-area: programming_languages;
+        
+        }
+    }
+
+    .programming_languages_content {
+        justify-self: start;
+        align-self: center;
+        padding-right: 25px;
+        //padding-left: $con_padding_right; 
+    }
+
+
+    .programming_languages{
+        margin: 0;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 130px;
+        height: auto;
+        width: 100%;
+        justify-self: center;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        margin: 0;
+        // the stable container _> position relative
+    }
+}
+@media only screen and (min-width: 1024){
+
+    section.myskills{
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: '. . . .'
+                             '. programming_languages_content programming_languages .'
+                             '. . . .';
+    
+        & .programming_languages_content{
+            grid-area: programming_languages_content;
+            
+        }
+    
+        & .programming_languages{
+            grid-area: programming_languages;
+           
+        }
+    }
+    
+    .programming_languages_content {
+        justify-self: start;
+        align-self: center;
+        padding-right: 200px;
+        //padding-left: $con_padding_right; 
+    }
+    
+    .programming_languages{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 155px;
+        height: auto;
+        width: 35em;
+        justify-self: end;
+        align-self:center;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        // the stable container _> position relative
+    }
+}
+@media only screen and (min-width: 1200px){
+    //------Myskills global
+    section.myskills{
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas: '. . . .'
+                            '. programming_languages_content programming_languages .'
+                            '. . . .';
+
+        & .programming_languages_content{
+            grid-area: programming_languages_content;
+            
+        }
+
+        & .programming_languages{
+            grid-area: programming_languages;
+        
+        }
+    }
+
+    .programming_languages_content {
+        justify-self: end;
+        align-self: center;
+        padding-right: 0px; 
+    }
+
+
+    .programming_languages{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 155px;
+        width: 33em;
+        justify-self: end;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        // the stable container _> position relative
+        & .lang_cont_relative{
+            & .lang_cont{
+                & h1 {
+                    font-size: $con_title_p_lg;
+                    margin-top: -5%;
+                    text-align: center;
+                    color: $dark-blue;
+                }
+            }
+
+            //-------------------------------->
+            //-------------------------------->
+            //-------------------------------->
+        }
+    }
+}
+@media only screen and (min-width: 1400px){
+    section.myskills{
+        display: grid;
+        grid-template-columns:1fr 650px 650px 1fr;
+        grid-template-rows: 180px auto 180px;
+        grid-template-areas: '. . . .'
+                            '. programming_languages_content programming_languages .'
+                            '. . . .';
+
+        & .programming_languages_content{
+            grid-area: programming_languages_content;
+            
+        }
+
+        & .programming_languages{
+            grid-area: programming_languages;
+        
+        }
+    }
+
+    .programming_languages_content {
+        justify-self: start;
+        align-self: center;
+        padding: 0px;
+    }
+
+
+    .programming_languages{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 155px;
+        justify-self: end;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        // the stable container _> position relative
+        & .lang_cont_relative{
+            & .lang_cont{
+                & h1 {
+                    font-size: $con_title_p_lg;
+                    margin-top: -5%;
+                    text-align: center;
+                    color: $dark-blue;
+                }
+            }
+
+            //-------------------------------->
+            //-------------------------------->
+            //-------------------------------->
+        }
+    }
+}
+
 

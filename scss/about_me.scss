@@ -232,6 +232,7 @@ section.about_me{
         & h1 {
             font-size: $con_title_h1_m;
             line-height: 1;
+            font-weight: 700;
         }
         & p {
             font-size: $con_p_font_size_m;
@@ -347,18 +348,20 @@ section.about_me{
         width: 100%;
         justify-self: end;
         align-self: center;
+        padding: 0;
+        margin: 0;
         //padding-right: $con_padding_right;
     }
 }
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 1400px){
     section.about_me{
         //background: $bg_about_me;
         justify-content: center;
         align-content: center;
         margin: 0;
         display: grid;
-        grid-template-columns:1fr 600px 600px 1fr;
-        grid-template-rows: 150px auto 120px;
+        grid-template-columns:1fr 650px 650px 1fr;
+        grid-template-rows: 180px auto 180px;
         grid-template-areas:". . . . "
                             ". about_image about_me_content ."
                             ". . . .";
@@ -372,6 +375,9 @@ section.about_me{
             // based on this widh .abt_me_image_height
             width: 460px;
         }
+    }
+    .about_me_content {
+        justify-self: end;
     }
 }
 
