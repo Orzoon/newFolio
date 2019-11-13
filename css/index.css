@@ -1765,6 +1765,7 @@ section.contact_me {
   width: 100%;
   height: auto;
   background: #fff;
+  background: #e8e4d5;
   display: grid;
   grid-template-columns: 4% 1fr 4%;
   grid-template-rows: 60px auto auto 60px;
@@ -1787,7 +1788,8 @@ section.contact_me {
     line-height: 1; }
   .contact_content p {
     margin-top: 30px;
-    font-size: 16px; }
+    font-size: 16px;
+    color: #54565a; }
 
 .contact_form {
   margin: 0;
@@ -1820,7 +1822,8 @@ section.contact_me {
     height: 200px; }
   .contact_form input {
     border-bottom: 1px solid #4716ed;
-    height: auto; }
+    height: auto;
+    background: inherit; }
   .contact_form #firstName {
     grid-area: firstName; }
   .contact_form #lastName {
@@ -1828,7 +1831,8 @@ section.contact_me {
   .contact_form #email {
     grid-area: email; }
   .contact_form #textarea {
-    grid-area: textarea; }
+    grid-area: textarea;
+    background: inherit; }
   .contact_form .form_button {
     grid-area: form_button;
     justify-self: start;
@@ -1867,7 +1871,6 @@ section.contact_me {
   section.contact_me {
     width: 100%;
     height: auto;
-    background: #fff;
     display: grid;
     grid-template-columns: 3% 1fr 1fr 3%;
     grid-template-rows: 120px 450px 120px;
@@ -1906,3 +1909,40 @@ section.contact_me {
     margin: 0;
     padding: 0;
     width: 90%; } }
+
+section.footer {
+  background: #fff;
+  display: grid;
+  grid-template-columns: 4% 1fr 4%;
+  grid-template-rows: 50px auto 50px;
+  grid-template-areas: ". . ." ". ulLists ." ". . ."; }
+
+ul.lists {
+  grid-area: ulLists;
+  margin-top: 40px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  width: 100%;
+  height: auto; }
+  ul.lists li {
+    height: 30px; }
+    ul.lists li a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      color: #4716ed;
+      text-decoration: none;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0px;
+      font-weight: 700;
+      font-size: 15px; }
+    ul.lists li:hover {
+      text-decoration: underline; }
+    ul.lists li a.linkedin {
+      color: #2867B2; }
+    ul.lists li a.github {
+      color: #333; }
+    ul.lists li a.codepen {
+      color: #000; }

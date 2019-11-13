@@ -2,6 +2,7 @@ section.contact_me{
     width: 100%;
     height: auto;
     background: #fff;
+    background: #e8e4d5;
     display: grid;
     grid-template-columns: 4% 1fr 4%;
     grid-template-rows:60px auto auto 60px;
@@ -34,6 +35,7 @@ section.contact_me{
    & p {
     margin-top:$con_title_p_margin_top;
     font-size: $con_p_font_size_sm;
+    color: #54565a;
    }
 }
 
@@ -80,6 +82,7 @@ section.contact_me{
     & input {
         border-bottom: 1px solid $nav-color;
         height: auto;
+        background: inherit;
     }
 
     & #firstName {
@@ -93,6 +96,7 @@ section.contact_me{
     }
     & #textarea{
         grid-area: textarea;
+        background: inherit;
     }
 
     & .form_button{
@@ -144,7 +148,6 @@ section.contact_me{
     section.contact_me{
         width: 100%;
         height: auto;
-        background: #fff;
         display: grid;
         grid-template-columns:3% 1fr 1fr 3%;
         grid-template-rows:120px 450px 120px;
