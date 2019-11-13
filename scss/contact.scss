@@ -3,15 +3,16 @@ section.contact_me{
     height: auto;
     background: #fff;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px auto 50px;
-    grid-template-areas:'. .'
-                        'contact_content contact_form'
-                        '. .';
+    grid-template-columns: 4% 1fr 4%;
+    grid-template-rows:60px auto auto 60px;
+    grid-template-areas:". . ."
+                        ". contact_content ." 
+                        ". contact_form ." 
+                        ". . .";
 
     & .contact_content{
         grid-area: contact_content;
-        justify-self: end;
+        justify-self: start;
         align-self: center;
     }
     & .contact_form {
@@ -23,26 +24,24 @@ section.contact_me{
 
 .contact_content{
    font-family: $font-family-sansp;
-   font-family: $font-family-sansp;
-   padding-left: $con_padding_right;
    & h1 {
-    font-size: $con_title_h1_lg;
+    font-size: $con_title_h1_m;
+    font-weight: 600;
     color: $dark-blue;
     line-height: 1;
    }
 
    & p {
     margin-top:$con_title_p_margin_top;
-    font-size: $con_title_p_lg;  
+    font-size: $con_p_font_size_sm;
    }
 }
 
 .contact_form{
    margin: 0;
    padding: 0;
-   padding-right: 50px;
    display: grid;
-   width: 80%;
+   width: 100%;
    height: auto;
    grid-template-columns:1fr;
    grid-template-rows:50px repeat(3,50px) auto 100px;
@@ -65,11 +64,6 @@ section.contact_me{
         &::-webkit-scrollbar {
             width: 8px;
         }
-        
-        &::-webkit-scrollbar-track {
-
-        }
-        
         &::-webkit-scrollbar-thumb {
           background-color: $nav-color;
           border-radius: 10px;
@@ -121,5 +115,88 @@ section.contact_me{
             letter-spacing: 0.5px;
             box-shadow: 0 2px 4px rgba(33,37,41,.2);
         }
+    }
+}
+
+@media only screen and (min-width: 500px){
+    .contact_content{
+        & h1{
+            font-size: $con_title_h1_m;
+            font-weight: 700;
+        }
+        & p{
+            font-size: $con_p_font_size_m;  
+        }
+     }
+}
+@media only screen and (min-width: 768px){
+    .contact_content{
+        & h1{
+            font-size: $con_title_h1_lg;
+            font-weight: 700;
+        }
+        & p{
+            font-size: $con_title_p_lg; 
+        }
+     }   
+}
+@media only screen and (min-width: 1200px){
+    section.contact_me{
+        width: 100%;
+        height: auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 450px 120px;
+        grid-template-areas:'. . . .'
+                            '. contact_content contact_form .'
+                            '. . . .';
+    
+        & .contact_content{
+            grid-area: contact_content;
+            justify-self: start;
+            align-self: center;
+        }
+        & .contact_form {
+            grid-area: contact_form;
+            justify-self: center; 
+            align-self: center;
+        }
+    }
+    
+    .contact_form{
+       margin: 0;
+       padding: 0;
+       width: 90%;
+    }
+}
+@media only screen and (min-width: 1400px){
+    section.contact_me{
+        width: 100%;
+        height: auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns:1fr 650px 650px 1fr;
+        grid-template-rows: 180px 450px 180px;
+        grid-template-areas:'. . . .'
+                            '. contact_content contact_form .'
+                            '. . . .';
+    
+        & .contact_content{
+            grid-area: contact_content;
+            justify-self: start;
+            align-self: center;
+        }
+        & .contact_form {
+            grid-area: contact_form;
+            justify-self: center; 
+            align-self: center;
+        }
+    }
+    
+    .contact_form{
+       margin: 0;
+       padding: 0;
+       width: 90%;
     }
 }

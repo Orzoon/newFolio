@@ -1,30 +1,32 @@
 section.my_video{
+    padding-bottom: 60px;
     width: 100%;
     height: auto;
     position: relative;
     background: $orange;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px auto auto 100px;
-    grid-template-areas:'. .'
-                        'video_container video_content'
-                        'video_container video_content'
-                        '. .';
+    grid-template-columns: 4% 1fr 4%;
+    grid-template-rows:60px auto auto;
+    grid-template-areas:". ."
+                        ". video_content"
+                        ". video_container"
+                        ". .";
 }
 .video_container {
+    margin-top: 60px;
     position: relative;
     grid-area: video_container;
-    justify-self: center;
-    align-self: start;
+    justify-self: start;
+    align-self: center;
     width: 90%;
     padding-bottom: 56.25%;
     height: 0;
-
 
     & iframe {
         position: absolute;
         height: 100%;
         width: 100%;
+        left: 0;
     }
 
 }
@@ -33,16 +35,16 @@ section.my_video{
     justify-self: start;
     align-self: center;
     font-family: $font-family-sansp;
-    padding-right: $con_padding_right;
     & h1{
-        font-size: $con_title_h1_lg;
+        font-size: $con_title_h1_m;
+        font-weight: 600;
         line-height: 1.1;
         color: #fff;
     }
     & p{
         margin-top:$con_title_p_margin_top;
+        font-size: $con_p_font_size_sm;
         color: #fff;
-        font-size: $con_title_p_lg;  
     }
 
 }
@@ -73,4 +75,135 @@ button.video_button {
         font-weight: 500;
     }
 
+}
+
+@media only screen and (min-width: 500px){
+    .video_content {
+        & h1{
+            font-size: $con_title_h1_m;
+            font-weight: 700;
+        }
+        & p{
+            font-size: $con_p_font_size_m;  
+        }
+    
+    }
+}
+@media only screen and (min-width: 650px){
+    .video_container {
+        width: 80%;
+        height: auto;
+    }
+}
+@media only screen and(min-width: 768px){
+    .video_content {
+        & h1{
+            font-size: $con_title_h1_lg;
+            font-weight: 700;
+        }
+        & p{
+            font-size: $con_title_p_lg; 
+        }
+    
+    }
+    .video_container {
+        width: 70%;
+       //overflow: hidden;
+    }
+}
+@media only screen and (min-width: 900px){
+    section.my_video{
+        display: grid;
+        grid-template-columns:2% 1fr 1fr 2%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas:'. . . .'
+                            '. video_container video_content .'
+                            '. . . .';
+    }
+    .video_container {
+        margin-top: 0;
+        position: relative;
+        grid-area: video_container;
+        justify-self: start;
+        align-self: start;
+        width: 90%;
+        padding-bottom: 56.25%;
+        height: 0;
+        & iframe {
+            position: absolute;
+            height: 150%;
+            width: 100%;
+        }
+    
+    }
+    .video_content {
+        padding: 0px;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    section.my_video{
+        padding-bottom: 90px;
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 1fr 100px;
+        grid-template-areas:'. . . .'
+                            '. video_container video_content .'
+                            '. . . .';
+    }
+    .video_container {
+        margin-top: 0;
+        position: relative;
+        grid-area: video_container;
+        justify-self: start;
+        align-self: start;
+        width: 90%;
+        padding-bottom: 56.25%;
+        height: 0;
+        & iframe {
+            position: absolute;
+            height: 130%;
+            width: 100%;
+        }
+    
+    }
+    .video_content {
+        padding: 0px;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    section.my_video{
+        padding-bottom: 0px;
+        display: grid;
+        grid-template-columns:3% 1fr 1fr 3%;
+        grid-template-rows:120px 450px 120px;
+        grid-template-areas:'. . . .'
+                            '. video_container video_content .'
+                            '. . . .';
+    }
+    .video_container {
+        height: 100%;
+        width: 95%;
+        & iframe {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    
+    }
+    .video_content {
+        padding: 0px;
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    section.my_video{
+        display: grid;
+        grid-template-columns:1fr 650px 650px 1fr;
+        grid-template-rows: 180px 450px 180px;
+        grid-template-areas:'. . . .'
+                            '. video_container video_content .'
+                            '. . . .';
+    }
 }
