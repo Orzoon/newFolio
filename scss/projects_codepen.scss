@@ -40,7 +40,6 @@ section.projects_codepen{
         grid-template-columns: 1fr;
         grid-template-rows: 200px 1fr;
         background: #fff;
-
         & .img_con {
             position: relative;
             width: 100%;
@@ -75,7 +74,10 @@ section.projects_codepen{
                 color: #fff;
                 font-family: inherit;
                 z-index: 5;
-
+                &:hover > h1 {
+                    cursor: pointer;
+                    text-decoration: none;
+                }
                 & h1{
                     font-family: $font-family-sansp;
                     font-size: $con_h1_font_lg;
@@ -98,7 +100,6 @@ section.projects_codepen{
             }
         }
     }
-
     
 }
 
@@ -131,6 +132,7 @@ section.projects_codepen{
         margin-top:40px;
     
         & a {
+            color: #fff;
             width: 100%;
             height: 100%;
             text-decoration: none;

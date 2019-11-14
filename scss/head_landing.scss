@@ -5,7 +5,7 @@ $font-family: 'Roboto Mono', monospace;
 section.head_landing{
     font-size: 16px;
     // height js computed
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     width: 100%;
     & #particles-js{

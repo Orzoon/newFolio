@@ -66,6 +66,10 @@ section.projects{
                 padding-left: 40px;
                 font-weight: 500;
                 word-spacing: 2px;
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: none;
+                }
             }
         }
 

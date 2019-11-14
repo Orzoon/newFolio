@@ -1,9 +1,15 @@
 window.addEventListener('load', function(){
+
+    const test = document.querySelector(".about_me_content");
+    
     // loading particles js
     particlesJS.load("particles-js", "./js/particles.json", function () {
-        console.log('particles loaded');
         })
 
+    function pageScroll(){
+       let elemPosition = test.getBoundingClientRect();
+       console.log(elemPosition)
+    }
     // setting width and height of canvas 
     function resizeCanvas(){
         let section_container = document.getElementById('head_landing');
@@ -22,11 +28,9 @@ window.addEventListener('load', function(){
             section_container.style.height = (770 - nav_navigation_height) + 'px'
             console.log(section_container.style.height)
         }
-        else {
+        else{
             section_container.style.height = (h - nav_navigation_height) + 'px';
         }
-
-        aboutmeImage();
     }
     // setting dynamic sizes
     function headImage(){
@@ -104,8 +108,9 @@ window.addEventListener('load', function(){
     resizeCanvas();
     aboutmeImage()
     headImage();
-
     // Event Listeners
      window.addEventListener('resize', resizeCanvas)
      window.addEventListener('resize', resizeImage)
+     window.addEventListener('resize', aboutmeImage)
+     window.addEventListener('scroll', pageScroll)
 })
