@@ -61,14 +61,20 @@ section.about_me{
     justify-self: start;
     align-self: center;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
     & h1 {
         font-family: $font-family-sansp;
         font-size: $con_title_h1_m;
         font-weight: 600;
         color: #fff;
         line-height: 1;
+        overflow: hidden;
     }
     & p {
+        overflow: hidden;
         margin-top:$con_title_p_margin_top;
         color:#fff;
         font-size: $con_p_font_size_sm;

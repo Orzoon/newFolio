@@ -16,6 +16,7 @@ body {
   width: 100%;
   overflow-x: hidden; }
 
+/*Common Animations */
 nav.nav_navigation {
   position: relative;
   width: 100%;
@@ -727,14 +728,20 @@ section.about_me {
   height: auto;
   justify-self: start;
   align-self: center;
-  padding: 0; }
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow: hidden; }
   .about_me_content h1 {
     font-family: "Poppins", sans-serif;
     font-size: 41px;
     font-weight: 600;
     color: #fff;
-    line-height: 1; }
+    line-height: 1;
+    overflow: hidden; }
   .about_me_content p {
+    overflow: hidden;
     margin-top: 30px;
     color: #fff;
     font-size: 16px;

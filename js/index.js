@@ -1,14 +1,43 @@
 window.addEventListener('load', function(){
-
     const test = document.querySelector(".about_me_content");
-    
-    // loading particles js
+    test.childNodes.forEach(childNode =>  {
+        childNode.style.marginTop = -25 + '%';
+        childNode.style.opacity = 0;
+        console.log(childNode, childNode.offsetHeight)
+    });
+    /*loading particles js*/
     particlesJS.load("particles-js", "./js/particles.json", function () {
-        })
+    })
+
+    function debounce(func,delay){
+        let timeID;
+
+        return function(){
+            if(timeID){
+                clearTimeout(timeID)
+            }
+            timeID = setTimeout(function(){
+                func.apply(this, [...arguments])
+            }, delay)
+        }
+    }
 
     function pageScroll(){
-       let elemPosition = test.getBoundingClientRect();
-       console.log(elemPosition)
+       let screenHeight = window.innerHeight;
+       let nodeElem = test.childNodes;
+       let nodeLength = nodeElem.length;
+       for(let i =0; i <= nodeLength-1; i++){
+          if(nodeElem[i].getBoundingClientRect().top < screenHeight + 60){
+              nodeElem[i].style.removeProperty('margin-top');
+              nodeElem[i].style.opacity = 1;
+              if(nodeElem[i].tagName === 'P'){
+                nodeElem[i].style.transition = 'margin 1s ease-in-out, opacity 1.8s ease-in-out';
+              }
+              else{
+                nodeElem[i].style.transition = 'margin 1s  ease-in-out, opacity 1.8s ease-in-out';
+              }
+          }
+       }
     }
     // setting width and height of canvas 
     function resizeCanvas(){
@@ -103,14 +132,15 @@ window.addEventListener('load', function(){
             head_image.style.width = head_image_con.offsetWidth + + 13 + 'px';
         }
     }
-
+   /*-----------------------------*/
     // functions invoking
     resizeCanvas();
-    aboutmeImage()
+    aboutmeImage();
     headImage();
+    /*-----------------------------*/
     // Event Listeners
      window.addEventListener('resize', resizeCanvas)
      window.addEventListener('resize', resizeImage)
      window.addEventListener('resize', aboutmeImage)
-     window.addEventListener('scroll', pageScroll)
+     window.addEventListener('scroll', debounce(pageScroll, 500))
 })
