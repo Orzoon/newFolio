@@ -26,6 +26,10 @@ section.myskills{
     }
 }
 .programming_languages_content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
     justify-self: start;
     align-self: center;
     & h1 {
@@ -67,10 +71,11 @@ section.myskills{
             top:0px;
             left: 0px;
             //-------------------->
+            overflow: hidden;
             animation: lang_cont_sm .6s ease-in-out forwards;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 3fr 1fr;
+            grid-template-rows: 75% 25%;
             grid-template-areas: 'icon_con'
                                 'h1';
             & .icon_con {
@@ -86,7 +91,7 @@ section.myskills{
                     width: 100%;
                 }
             }
-            & .html, & .mysql{
+            & .mysql{
                 margin-left: 65%;
             }
             & .php{
@@ -98,6 +103,7 @@ section.myskills{
                 margin-top: -5%;
                 text-align: center;
                 color: $dark-blue;
+                overflow: hidden;
             }
         }
 

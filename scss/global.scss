@@ -17,6 +17,7 @@ html {
 body {
     width: 100%;
     overflow-x: hidden;
+    margin: 0;
 }
 
 
@@ -77,6 +78,12 @@ $heading-fontsize-lg: 34px;
 
 /*Common Animations */
 
+button.projects_button, button.video_button {
+    margin-bottom: 20px;
+    background: none;
+    box-shadow: none !important;
+    justify-self: start;
+}
 
 
 

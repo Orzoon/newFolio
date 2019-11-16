@@ -35,6 +35,10 @@ section.my_video{
     justify-self: start;
     align-self: center;
     font-family: $font-family-sansp;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    overflow: hidden;
     & h1{
         font-size: $con_title_h1_m;
         font-weight: 600;

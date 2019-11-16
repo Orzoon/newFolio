@@ -33,8 +33,6 @@ section.about_me{
         z-index: 9;
         top: 0%;
         right: 0%;
-        opacity: 0;
-        animation: about_me_con 1s 2.2s ease-in-out forwards;
         & img{
             display: block;
             width: 100%;
@@ -156,8 +154,6 @@ section.about_me{
 @keyframes about_me_image{
     100% {
         opacity: 1;
-        margin-bottom: -5%;
-        margin-left: 50px;
     }
 }
 
@@ -224,7 +220,7 @@ section.about_me{
         & .about_me_con{
             // based on this widh .abt_me_image_height
             width: 390px;
-            animation: about_me_con_lvl_1 1s 2.2s ease-in-out forwards;
+            //animation: about_me_con_lvl_1 1s 2.2s ease-in-out forwards;
         }
     }
     .about_me_content {
@@ -271,7 +267,7 @@ section.about_me{
         & .about_me_con{
             // based on this widh .abt_me_image_height
             width: 420px;
-            animation: about_me_con 1s 2.2s ease-in-out forwards;
+            //animation: about_me_con 1s 2.2s ease-in-out forwards;
         }
     }
     .about_me_content {

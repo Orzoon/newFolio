@@ -17,6 +17,10 @@ section.projects_codepen{
     }
     & .projects_content{
         grid-area: projects_content;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        overflow: hidden;
     }
 }
 

@@ -1,11 +1,16 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
-const pug = require('gulp-pug')
+const pug = require('gulp-pug');
+const sourcemaps = require("gulp-sourcemaps");
+const autoprefixer = require("gulp-autoprefixer");
 
 function cssStyles(){
     return gulp.src('./scss/index.scss')
+            .pipe(sourcemaps.init())
            .pipe(sass())
+           .pipe(autoprefixer({}))
+           .pipe(sourcemaps.write('./'))
            .pipe(gulp.dest('./css'))
            .pipe(browserSync.stream());
 }

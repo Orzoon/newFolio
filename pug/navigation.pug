@@ -9,18 +9,19 @@ nav.nav_navigation
             </g>
             </g>
         </svg> 
-    .navigation_links_list_con
-        ul.navigation_links_list
+    .navigation_links_list_con#navContainer
+        ul.navigation_links_list#navUl
             li.closeBtn
-                a close btn
-            li
-                a(href="#about-me") About me
-            li
-                a(href="#skills") Skills
-            li
-                a(href="#projects") Projects
-            li
-                a(href="#video") Video
-            li
-                a.nav_contact(href="#contact") Contact
-    .navigation_ham_menu
+                a#closeMenu close menu
+                span#closeIcon
+            li.navList
+                a.navLink(href="#about-me") About me
+            li.navList
+                a.navLink(href="#skills") Skills
+            li.navList
+                a.navLink(href="#projects") Projects
+            li.navList
+                a.navLink(href="#video") Video
+            li.navList
+                a.nav_contact.navLink(href="#contact") Contact
+    .navigation_ham_menu#navMenu

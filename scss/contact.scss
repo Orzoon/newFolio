@@ -15,6 +15,10 @@ section.contact_me{
         grid-area: contact_content;
         justify-self: start;
         align-self: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        overflow: hidden;
     }
     & .contact_form {
         grid-area: contact_form;

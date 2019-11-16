@@ -42,35 +42,35 @@ section.projects{
                     z-index: 3;
                 }
                 &:after {
-                    top: 80%;
-                    height: 20%;
+                    bottom: 0%;
+                    height: 21%;
                     background:#300a44;
                     z-index: 3;
                 }
-            img: {
-                width: 100%;
-                height: auto;
-                display: block;
-            }
-            & .project_image_text {
-                position: absolute;
-                z-index: 4;
-                height: 38%;
-                width: 100%;
-                left: 0;
-                bottom: 20px;
-                color: #fff;
-                font-size: 1.6em;
-                font-family: $font-family-sansp;
-                text-decoration: underline;
-                padding-left: 40px;
-                font-weight: 500;
-                word-spacing: 2px;
-                &:hover {
-                    cursor: pointer;
-                    text-decoration: none;
+                & img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
                 }
-            }
+                & .project_image_text {
+                    position: absolute;
+                    z-index: 4;
+                    height: 38%;
+                    width: 100%;
+                    left: 0;
+                    bottom: 20px;
+                    color: #fff;
+                    font-size: 1.6em;
+                    font-family: $font-family-sansp;
+                    text-decoration: underline;
+                    padding-left: 40px;
+                    font-weight: 500;
+                    word-spacing: 2px;
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                }
         }
 
         & .project_image_desc{
@@ -94,6 +94,10 @@ section.projects{
         }
     }
     & .project_desc{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        overflow: hidden;
         grid-area: project_desc;
         justify-self: start;
         align-self: center;
@@ -144,7 +148,7 @@ section.projects{
                     width: 100%;
                     height: 364px;
                     overflow: hidden;
-                img: {
+                & img {
                     width: 100%;
                     height: auto;
                     display: block;

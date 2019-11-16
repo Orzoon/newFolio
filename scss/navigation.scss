@@ -25,14 +25,17 @@ nav.nav_navigation{
         }
     }
     & .navigation_links_list_con{
-        margin-top: -10px; 
+        margin-top: -5px; 
         position: fixed; 
+        right: -100%;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         z-index: 10; 
         display: grid;
-        display: none; 
+        //display: none; 
         grid-template-columns: 1fr 250px; 
+        
+        //transition: all 3s ease-in-out;
         &:after {
             position: absolute;
             content: '';
@@ -48,12 +51,12 @@ nav.nav_navigation{
             position: absolute;
             z-index: 12;
             right: 0;
-            width: 250px;
+            width: 0%;
             height: 100%;
             background: #FFF;
             box-shadow: rgba(0, 0, 0, 0.9) 0px 1px 7px 0px;
             justify-items: start;
-            align-items: center;
+            align-items: start;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(5,50px) 80px;
             & li{
@@ -92,7 +95,7 @@ nav.nav_navigation{
 }
 
 ul.navigation_links_list{
-    width: 100%;
+    width: 0%;
     height: auto;
     padding: 0;
     margin: 0;
@@ -102,6 +105,7 @@ ul.navigation_links_list{
 
     & li {
         align-items: center;
+        height: 100%;
         margin: auto 30px auto 30px;
         & a {
             display: flex;
@@ -115,9 +119,11 @@ ul.navigation_links_list{
             letter-spacing: 0px;
             font-weight: 700;
             font-size: 15px;
+            cursor: pointer;
         }
         & a.nav_contact {
             color: #fff;
+            height: 100%;
         }
         &:hover {
             text-decoration: underline;
@@ -146,13 +152,49 @@ ul.navigation_links_list{
         }
     }
 }
+li.closeBtn {
+    position: relative;
+
+    & span {
+        display: block;
+        position: absolute;
+        top: 50%;
+        height: 80%;
+        width: 45px;
+        right: -80%;
+        //background: red;
+        z-index: 13;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &::before, &::after {
+            position: absolute;
+            content: '';
+            width: 80%;
+            height: 4px;
+            background: #4716ed;
+            z-index: 14;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &::before{
+            //transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &::after{
+            transform: rotate(-45deg);
+        }
+    }
+}
 //------------------------------------------------------------------------>
 @media only screen and (min-width: 300px){
     nav.nav_navigation{
         padding: 5px 0px 8px 0px;
         grid-template-areas: ". logo ham_menu .";
         & .navigation_links_list_con{
-            margin-top: -14px; 
+            margin-top: -5px; 
             & ul.navigation_links_list{
                 & li{
                    margin: auto 30px auto 30px;
@@ -184,7 +226,7 @@ ul.navigation_links_list{
             }
         }
         & .navigation_links_list_con{
-            margin-top: -24px;
+            margin-top: -10px;
             & ul.navigation_links_list{
                 & li{
                    // margin: auto 30px auto 30px;
@@ -222,8 +264,10 @@ ul.navigation_links_list{
             justify-self: end;
             height: auto;
             width: auto;
+            right: 0 !important;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
+            transition: none !important;
 
             &:after {
                 width: 0;
@@ -233,13 +277,16 @@ ul.navigation_links_list{
 
             & ul.navigation_links_list{
                 position: relative;
-                width: 100%;
+                width: 100% !important;
+                right: 0 !important;
                 height: auto;
                 padding: 0;
                 margin: 0;
                 box-shadow: none;
+                transition: none !important;
                 display: grid;
                 justify-items: center;
+                align-items: center;
                 grid-template-columns: repeat(5,1fr);
                 grid-template-rows: auto;
                 & li.closeBtn{
@@ -305,4 +352,14 @@ ul.navigation_links_list{
         }
     }
         
-}   
+}  
+
+.showMblMenu{
+    //width: 250px;
+    width: 250px !important;
+    transition: width 0.3s  linear !important;
+}
+.showNavCon{
+    right: 0% !important;
+    transition: right 0.1s linear !important;
+}
