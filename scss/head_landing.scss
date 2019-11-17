@@ -126,8 +126,6 @@ section.head_landing{
     }
 
 } 
-
-
 @keyframes head_title_sm{
     0% {
         margin-left: 10px;
@@ -224,7 +222,7 @@ section.head_landing{
 
 @keyframes head_button_mm{
     0% {
-        margin-left: 30;
+        margin-left: 30px;
         opacity: 0;
     }
     100% {
@@ -261,7 +259,7 @@ section.head_landing{
 }
 @keyframes head_button_lg{
     0% {
-        margin-left: 50;
+        margin-left: 50px;
         opacity: 0;
     }
     100% {

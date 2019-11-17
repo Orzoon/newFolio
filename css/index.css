@@ -15,7 +15,8 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  margin: 0; }
+  margin: 0;
+  overflow: hidden; }
 
 /*Common Animations */
 button.projects_button, button.video_button {
@@ -23,6 +24,65 @@ button.projects_button, button.video_button {
   background: none;
   box-shadow: none !important;
   justify-self: start; }
+
+section.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 17;
+  background: #fff; }
+
+.lds-ripple {
+  display: block;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+
+.lds-ripple div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 5px solid #4716ed;
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+          animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite; }
+
+.lds-ripple div:nth-child(2) {
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+  border: 5px solid #4716ed; }
+
+.lds-ripple div:nth-child(3) {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  border: 5px solid #300a44; }
+
+@-webkit-keyframes lds-ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1; }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0; } }
+
+@keyframes lds-ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1; }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0; } }
 
 nav.nav_navigation {
   position: relative;
@@ -579,7 +639,7 @@ section.head_landing {
 
 @-webkit-keyframes head_button_mm {
   0% {
-    margin-left: 30;
+    margin-left: 30px;
     opacity: 0; }
   100% {
     opacity: 1;
@@ -587,7 +647,7 @@ section.head_landing {
 
 @keyframes head_button_mm {
   0% {
-    margin-left: 30;
+    margin-left: 30px;
     opacity: 0; }
   100% {
     opacity: 1;
@@ -643,7 +703,7 @@ section.head_landing {
 
 @-webkit-keyframes head_button_lg {
   0% {
-    margin-left: 50;
+    margin-left: 50px;
     opacity: 0; }
   100% {
     opacity: 1;
@@ -651,7 +711,7 @@ section.head_landing {
 
 @keyframes head_button_lg {
   0% {
-    margin-left: 50;
+    margin-left: 50px;
     opacity: 0; }
   100% {
     opacity: 1;
@@ -2312,7 +2372,6 @@ section.contact_me {
   section.contact_me {
     width: 100%;
     height: auto;
-    background: #fff;
     display: grid;
     grid-template-columns: 1fr 650px 650px 1fr;
     grid-template-rows: 180px 450px 180px;
@@ -2334,8 +2393,34 @@ section.footer {
   background: #fff;
   display: grid;
   grid-template-columns: 4% 1fr 4%;
-  grid-template-rows: 50px auto 50px;
-  grid-template-areas: ". . ." ". ulLists ." ". . ."; }
+  grid-template-rows: 50px auto 20px auto 20px auto 50px;
+  grid-template-areas: ". . ." ". ulLists_external ." ". . ." ". ulLists ." ". . ." ". footerLogo ." ". . ."; }
+
+section.footer ul {
+  margin-top: 0;
+  list-style-type: none;
+  align-self: cetner; }
+  section.footer ul li {
+    height: 30px; }
+    section.footer ul li a {
+      display: -webkit-box;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      color: #4716ed;
+      text-decoration: none;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0px;
+      font-weight: 700;
+      font-size: 15px; }
+    section.footer ul li:hover {
+      text-decoration: underline; }
+    section.footer ul li a.linkedin {
+      color: #2867B2; }
+    section.footer ul li a.github {
+      color: #333; }
+    section.footer ul li a.codepen {
+      color: #000; }
 
 ul.lists {
   grid-area: ulLists;
@@ -2349,26 +2434,33 @@ ul.lists {
   justify-items: flex-start;
   width: 100%;
   height: auto; }
-  ul.lists li {
-    height: 30px; }
-    ul.lists li a {
-      display: -webkit-box;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      color: #4716ed;
-      text-decoration: none;
-      font-family: "Roboto Mono", monospace;
-      letter-spacing: 0px;
-      font-weight: 700;
-      font-size: 15px; }
-    ul.lists li:hover {
-      text-decoration: underline; }
-    ul.lists li a.linkedin {
-      color: #2867B2; }
-    ul.lists li a.github {
-      color: #333; }
-    ul.lists li a.codepen {
-      color: #000; }
+
+ul.lists_external {
+  grid-area: ulLists_external; }
+
+.footerLogo {
+  grid-area: footerLogo;
+  height: 80px; }
+  .footerLogo svg {
+    height: 100%;
+    width: auto;
+    fill: #000; }
+
+@media only screen and (min-width: 768px) {
+  section.footer {
+    background: #fff;
+    display: grid;
+    grid-template-columns: 4% auto 30px auto 30px auto 4%;
+    grid-template-rows: 100px auto 100px;
+    grid-template-areas: ". . . . . . ." ". footerLogo . ulLists_external . ulLists ." ". . . . . . ."; }
+  .footerLogo svg {
+    height: auto;
+    width: 100px;
+    fill: #000; } }
+
+@media only screen and (min-width: 1200px) {
+  section.footer {
+    width: 1100;
+    margin: 0 auto; } }
 
 /*# sourceMappingURL=index.css.map */
