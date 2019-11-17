@@ -23,6 +23,8 @@ window.addEventListener('load', function(){
                 ]
     let scrollEnd = false;
     const projectCodepenElements = document.querySelectorAll(".img_con_title h1");
+    const loader = document.querySelector(".loader");
+    let formButton = document.getElementById("formButton");
    
    
     /*----------------------------------------------*/
@@ -31,10 +33,12 @@ window.addEventListener('load', function(){
     /*---------FUNCTIONS--------------*/
     function execution(){
         initialDom();
+        clearLoader();
         settingLayout();
         eventListeners();
         particles();
     }
+    /*--------initialDOM ------*/
     function initialDom(){
         /*------Setting-Initial-DOM-styles------------ */
         for(let i = 0; i < contentsLength; i++){
@@ -53,16 +57,19 @@ window.addEventListener('load', function(){
             }
         }
     }
+    /*--------Particles ------*/
     function particles(){
         particlesJS.load("particles-js", "./js/particles.json", function () {
         })
     }
+    /*--------layoutsetting ------*/
     function settingLayout(){
         resizeCanvas();
         landingEffect();
         headImage();
         aboutmeImage();
     }
+    /*--------attaching event listeners ------*/
     function eventListeners(){
         // Event Listeners
         /*--window-events--*/
@@ -76,6 +83,7 @@ window.addEventListener('load', function(){
         closeMenu.addEventListener('click', toggle,false);
         closeIcon.addEventListener('click', toggle,false);
         buttonAboutme.addEventListener('click', scroll,false);
+        formButton.addEventListener('click', formHandler, false);
         for(z= 0; z <navLink.length; z ++){
             navLink[z].addEventListener('click', scroll, false )
         }
@@ -87,6 +95,14 @@ window.addEventListener('load', function(){
                 openProjectLink(e,links[s+1]);
             })
         }
+    }
+    /*--------clearing loader ------*/
+    function clearLoader(){
+        setTimeout(function(){
+            loader.style.display = "none";
+            document.body.style.overflowY = "scroll";
+        }, 1500)
+       
     }
     /*--------DEBOUNCE ------*/
     function debounce(func,delay){
@@ -101,6 +117,7 @@ window.addEventListener('load', function(){
             }, delay)
         }
     }
+    /*--------first landing ------*/
     function landingEffect(){
         let landingElements = document.querySelectorAll(".head_title h1, .head_button button, .head_image_con");
         let wt = window.innerWidth;
@@ -111,30 +128,30 @@ window.addEventListener('load', function(){
         //abt_me_con.style.opacity = 0;
 
         if(wt <= 300 ){
-            landingElements[0].style.animation = 'head_title_sm .8s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_sm .8s 1.5s ease-in-out forwards';
             landingElements[1].style.animation = 'head_button_sm .8s .5s ease-in-out forwards';
             //animation: head_title_sm 1s ease-in-out forwards;
             //animation: head_button_sm 1s .5s ease-in-out forwards;
         }
         else if(wt > 300 && wt <=767){
-            landingElements[0].style.animation = 'head_title_m 1s ease-in-out forwards';
-            landingElements[1].style.animation = 'head_button_m 1s .5s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_m 1s 1.5s ease-in-out forwards';
+            landingElements[1].style.animation = 'head_button_m 1s 2s ease-in-out forwards';
         }
         else if(wt >= 768 && wt <=899){
-            landingElements[0].style.animation = 'head_title_m 1s ease-in-out forwards';
-            landingElements[1].style.animation = 'head_button_m 1s .5s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_m 1s 1.5s ease-in-out forwards';
+            landingElements[1].style.animation = 'head_button_m 1s 2s ease-in-out forwards';
         }
         else if(wt >= 900 && wt <= 1023){
-            landingElements[0].style.animation = 'head_title_mm 1s ease-in-out forwards';
-            landingElements[1].style.animation = 'head_button_mm 1s .5s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_mm 1s 1.5s ease-in-out forwards';
+            landingElements[1].style.animation = 'head_button_mm 1s 2s ease-in-out forwards';
         }
         else if(wt >= 1024){
-            landingElements[0].style.animation = 'head_title_lg 1s ease-in-out forwards';
-            landingElements[1].style.animation = 'head_button_lg 1s .5s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_lg 1s 1.5s ease-in-out forwards';
+            landingElements[1].style.animation = 'head_button_lg 1s 2s ease-in-out forwards';
         }
         else {
-            landingElements[0].style.animation = 'head_title_llg 1s ease-in-out forwards';
-            landingElements[1].style.animation = 'head_button_llg 1s .5s ease-in-out forwards';
+            landingElements[0].style.animation = 'head_title_llg 1s 1.5s ease-in-out forwards';
+            landingElements[1].style.animation = 'head_button_llg 1s 2s ease-in-out forwards';
         }
 
     }
@@ -143,7 +160,6 @@ window.addEventListener('load', function(){
         if(scrollEnd){
             return
         }
-        console.log('scrolling')
         let screenWidth = document.documentElement.clientWidth;
         let sw = window.innerWidth;
         let screenHeight = window.innerHeight;
@@ -228,6 +244,50 @@ window.addEventListener('load', function(){
                 }        
             }
         }
+    }
+    function formHandler(e){
+        e.preventDefault();
+        let elem = document.querySelectorAll(".input");
+        const data = {};
+        let validated = true;
+        // name check
+        if(elem[0].value.match(/^[A-Za-z]+$/)){
+          data[elem[0].getAttribute('name')] = elem[0].value
+          elem[0].style.borderColor = 'green';
+        }
+        else{
+            elem[0].style.borderColor = 'red';
+            validated = false;
+        }
+        // last name check
+        if(elem[1].value !== "" || elem[1].value.match(/^[A-Za-z]+$/)){
+            data[elem[1].getAttribute('name')] = elem[1].value;
+            elem[1].style.borderColor = 'green';
+        }
+        else{  
+            elem[1].style.borderColor = 'red';
+            validated = false;
+        }
+        // email check
+        if(elem[2].value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+            data[elem[2].getAttribute('name')] = elem[2].value;
+            elem[2].style.borderColor = 'green';
+        }
+        else{
+            elem[2].style.borderColor = 'red';
+            validated = false;
+        }
+        // textarea
+        if(elem[3].value !==""){
+            data[elem[3].getAttribute('name')] = elem[3].value;
+            elem[3].style.borderColor = 'green';
+        }
+        else {
+            elem[3].style.borderColor = 'red';
+            validated = false;
+        }
+        if(validated){}
+        
     }
     // setting width and height of canvas 
     function resizeCanvas(){
