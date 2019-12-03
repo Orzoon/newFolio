@@ -70,6 +70,14 @@ section.projects{
                         cursor: pointer;
                         text-decoration: none;
                     }
+
+                    & a {
+                        color: #fff;
+
+                        &:hover{
+                            text-decoration: none;
+                        }
+                    }
                 }
         }
 

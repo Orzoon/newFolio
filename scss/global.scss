@@ -20,8 +20,6 @@ body {
     margin: 0;
     overflow: hidden;
 }
-
-
 //$font-family: 'Space Mono', monospace;
 $font-family-sansp: 'Poppins', sans-serif;
 $font-family-sans: 'Source Sans Pro', sans-serif;
@@ -84,6 +82,22 @@ button.projects_button, button.video_button {
     background: none;
     box-shadow: none !important;
     justify-self: start;
+}
+
+// current additions styles
+#algorithm_container{
+    box-shadow: 0px 0px 5px 2px #ccc;
+}
+#projects{
+    background: #ff5438;
+    background: #fff;
+}
+#algorithm_heading{
+    line-height: 1.1;
+    color: #300a44;
+}
+#algorithm_paragraph{
+    color: #54565a;
 }
 
 

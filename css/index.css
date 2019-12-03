@@ -25,6 +25,20 @@ button.projects_button, button.video_button {
   box-shadow: none !important;
   justify-self: start; }
 
+#algorithm_container {
+  box-shadow: 0px 0px 5px 2px #ccc; }
+
+#projects {
+  background: #ff5438;
+  background: #fff; }
+
+#algorithm_heading {
+  line-height: 1.1;
+  color: #300a44; }
+
+#algorithm_paragraph {
+  color: #54565a; }
+
 section.loader {
   position: fixed;
   height: 100%;
@@ -1750,6 +1764,10 @@ section.projects {
         section.projects .project_image_con .project_image .project_image_text:hover {
           cursor: pointer;
           text-decoration: none; }
+        section.projects .project_image_con .project_image .project_image_text a {
+          color: #fff; }
+          section.projects .project_image_con .project_image .project_image_text a:hover {
+            text-decoration: none; }
     section.projects .project_image_con .project_image_desc {
       height: 100%;
       width: 100%;
@@ -2485,5 +2503,8 @@ ul.lists_external {
   section.footer {
     width: 1100;
     margin: 0 auto; } }
+
+button {
+  height: 60px; }
 
 /*# sourceMappingURL=index.css.map */

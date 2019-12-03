@@ -25,6 +25,7 @@ window.addEventListener('load', function(){
     const projectCodepenElements = document.querySelectorAll(".img_con_title h1");
     const loader = document.querySelector(".loader");
     let formButton = document.getElementById("formButton");
+    let elem = document.querySelectorAll(".input");
    
    
     /*----------------------------------------------*/
@@ -76,7 +77,7 @@ window.addEventListener('load', function(){
         window.addEventListener('resize', debounce(resizeCanvas,200),false)
         window.addEventListener('resize', debounce(resizeImage,200),false)
         window.addEventListener('resize', debounce(aboutmeImage,200),false)
-        window.addEventListener('scroll', debounce(pageScroll,50), false)
+        window.addEventListener('scroll', debounce(pageScroll,0), false)
         /* elementEvents */
         //buttonAboutme.addEventListener('click', toggle)
         navMenu.addEventListener('click', toggle,false);
@@ -169,7 +170,7 @@ window.addEventListener('load', function(){
            let nodeLength = nodeElem.length;
            if(j ===  1){
             for(let i =0; i < nodeLength; i++){
-                if(nodeElem[i].getBoundingClientRect().top < (screenHeight-(screenHeight/2))){
+                if(nodeElem[i].getBoundingClientRect().top < (screenHeight-(screenHeight/3))){
                     nodeElem[i].style.removeProperty('margin-top');
                     nodeElem[i].style.opacity = 1;
                     if(nodeElem[i].tagName === 'P'){
@@ -183,7 +184,7 @@ window.addEventListener('load', function(){
            }
            else{
                 for(let i =0; i < nodeLength; i++){
-                    if(nodeElem[i].getBoundingClientRect().top < (screenHeight-(screenHeight/3))){
+                    if(nodeElem[i].getBoundingClientRect().top < (screenHeight-(screenHeight/4))){
                         nodeElem[i].style.removeProperty('margin-top');
                         nodeElem[i].style.opacity = 1;
                         if(nodeElem[i].tagName === 'P'){
@@ -199,13 +200,12 @@ window.addEventListener('load', function(){
        }
        for(let i = 0; i < contentsContainerLength; i++){
            if(i === 0){
-                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight/2)){
+                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight-(screenHeight/3))){
                     contentsContainer[i].style.removeProperty('margin-top');
                     contentsContainer[i].style.opacity = 1;
                     contentsContainer[i].style.transition = 'margin 1s ease-in-out, opacity 1.8s ease-in-out'; 
                     aboutImageContainer.style.animation= 'about_me_image 1s 1.5s ease-in-out forwards';
                     if(sw <= 499){
-                        console.log('hi')
                         aboutImage.style.animation = "about_me_con 1s 1.2s ease-in-out forwards";
                         //animation: about_me_con 1s 2.2s ease-in-out forwards;
                     }
@@ -220,13 +220,14 @@ window.addEventListener('load', function(){
                     }
                 }
            }
-            else if(i === 1 && contentsContainer[i].getBoundingClientRect().top < (screenHeight-(screenHeight/2) - 60)){
+            else if(i === 1 && contentsContainer[i].getBoundingClientRect().top < (screenHeight-(screenHeight/3))){
                 contentsContainer[i].style.removeProperty('margin-top');
                 contentsContainer[i].style.opacity = 1;
                 contentsContainer[i].style.transition = 'margin 2s 1s ease-in-out, opacity 1.8s 1s ease-in-out';  
             }
-            else if( i === 3 || i === 4){
-                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight/2)){
+            //else if( i === 3 || i === 4)
+            else if( i === 4 || i === 5){
+                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight -(screenHeight/3))){
                     contentsContainer[i].style.removeProperty('margin-top');
                     contentsContainer[i].style.opacity = 1;
                     contentsContainer[i].style.transition = 'margin 1s ease-in-out, opacity 1.8s ease-in-out';  
@@ -234,12 +235,12 @@ window.addEventListener('load', function(){
             }
             
             else{
-                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight/2)){
+                if(contentsContainer[i].getBoundingClientRect().top < (screenHeight -(screenHeight/3))){
                     contentsContainer[i].style.removeProperty('margin-top');
                     contentsContainer[i].style.opacity = 1;
                     contentsContainer[i].style.transition = 'margin 2s ease-in-out, opacity 1.8s ease-in-out'; 
                 }
-                if(contentsContainer[6].getBoundingClientRect().top < (screenHeight/2)){
+                if(contentsContainer[7].getBoundingClientRect().top < (screenHeight/3)){
                     scrollEnd = true;
                 }        
             }
@@ -247,12 +248,11 @@ window.addEventListener('load', function(){
     }
     function formHandler(e){
         e.preventDefault();
-        let elem = document.querySelectorAll(".input");
         const data = {};
         let validated = true;
         // name check
-        if(elem[0].value.match(/^[A-Za-z]+$/)){
-          data[elem[0].getAttribute('name')] = elem[0].value
+        if(elem[0].value.trim().length !== 0 && elem[0].value.trim().match(/^[A-Za-z]+$/)){
+          data[elem[0].getAttribute('name')] = elem[0].value.trim();
           elem[0].style.borderColor = 'green';
         }
         else{
@@ -260,8 +260,8 @@ window.addEventListener('load', function(){
             validated = false;
         }
         // last name check
-        if(elem[1].value !== "" || elem[1].value.match(/^[A-Za-z]+$/)){
-            data[elem[1].getAttribute('name')] = elem[1].value;
+        if(elem[1].value.trim().length !== 0 && elem[1].value.trim().match(/^[A-Za-z]+$/)){
+            data[elem[1].getAttribute('name')] = elem[1].value.trim();
             elem[1].style.borderColor = 'green';
         }
         else{  
@@ -269,8 +269,8 @@ window.addEventListener('load', function(){
             validated = false;
         }
         // email check
-        if(elem[2].value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
-            data[elem[2].getAttribute('name')] = elem[2].value;
+        if(elem[2].value.trim().length !== 0 &&  elem[2].value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+            data[elem[2].getAttribute('name')] = elem[2].value.trim();
             elem[2].style.borderColor = 'green';
         }
         else{
@@ -278,15 +278,43 @@ window.addEventListener('load', function(){
             validated = false;
         }
         // textarea
-        if(elem[3].value !==""){
-            data[elem[3].getAttribute('name')] = elem[3].value;
+        if(elem[3].value.trim().length !== 0 &&   elem[3].value !==""){
+            data[elem[3].getAttribute('name')] = elem[3].value.trim();
             elem[3].style.borderColor = 'green';
         }
         else {
             elem[3].style.borderColor = 'red';
             validated = false;
         }
-        if(validated){}
+        if(validated){
+            fetch("https://orzoon-portfolio.herokuapp.com/message", {
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(function(res){
+                console.log(res)
+                if(res.status === 200){
+                    formButton.childNodes[0].innerText = "Message sent";
+                    setTimeout(function(){
+                        for(let i = 0; i < elem.length ; i ++){
+                            elem[i].style.borderColor = '#4716ed'
+                            elem[i].value = ""
+                        }
+                        formButton.childNodes[0].innerText = "Send Message";
+                    }, 2000)
+                }
+                else {
+                    formButton.childNodes[0].innerText = "try again";
+                }
+            })
+            .catch(function(error){
+                formButton.childNodes[0].innerText = "try again";
+            })
+
+        }
         
     }
     // setting width and height of canvas 
@@ -301,9 +329,14 @@ window.addEventListener('load', function(){
             section_container.style.height = (750 - nav_navigation_height) + 'px';
             console.log(section_container.style.height)
         }
+        else if((wt >= 768 && wt <= 1440) && (h >= 750 && h < 1200) ){
+            section_container.style.height = (800 - nav_navigation_height) + 'px'
+        }
+        else if((wt >= 1024 && wt <= 1400) && (h > 1200)){
+            section_container.style.height = (1000 - nav_navigation_height) + 'px'
+        }
         else if( wt >= 1440 && h >= 801) {
             section_container.style.height = (770 - nav_navigation_height) + 'px'
-            console.log(section_container.style.height)
         }
         else{
             section_container.style.height = (h - nav_navigation_height) + 'px';
