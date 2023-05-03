@@ -17,5 +17,9 @@
   },
   "dependencies": {
     "gulp-pug": "^4.0.1"
+  },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.13"
   }
 }
